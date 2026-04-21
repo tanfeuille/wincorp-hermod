@@ -1,0 +1,50 @@
+{
+  "name": "@tanfeuille/hermod",
+  "version": "0.1.0",
+  "description": "Hermod — messager des dieux nordiques. Wrapper TypeScript du SDK @anthropic-ai/sdk, aligné sur la config LLM Yggdrasil exposée par @tanfeuille/bragi. Porte retry + timeout + métriques vers Anthropic. Consommé par wincorp-thor et wincorp-bifrost.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "wincorp",
+    "yggdrasil",
+    "hermod",
+    "anthropic",
+    "claude",
+    "llm",
+    "client",
+    "wrapper"
+  ],
+  "author": "Tan Phi HUYNH <tanfeuille@gmail.com>",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanfeuille/wincorp-hermod.git"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.82.0",
+    "@tanfeuille/bragi": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
