@@ -97,17 +97,26 @@ Dans `wincorp-thor/package.json` :
 
 ### Prod (GitHub Packages)
 
-Même `.npmrc` + PAT que bragi (cf. [README bragi](https://github.com/tanfeuille/wincorp-bragi#en-prod)) :
+Même `.npmrc` + PAT que bragi (cf. [README bragi](https://github.com/tanfeuille/wincorp-bragi#en-prod)).
+
+**Bragi est une `peerDependency`** — tu dois l'installer explicitement à côté d'hermod :
+
+```bash
+npm install @tanfeuille/hermod @tanfeuille/bragi
+```
+
+Dans `package.json` consommateur :
 
 ```json
 {
   "dependencies": {
-    "@tanfeuille/hermod": "^0.1.0"
+    "@tanfeuille/hermod": "^0.1.0",
+    "@tanfeuille/bragi": "^0.1.0"
   }
 }
 ```
 
-Hermod porte bragi en dep transitive automatiquement.
+Pourquoi peerDep et pas dep transitive ? Hermod est infrastructure critique : une dep transitive pourrait laisser deux versions de bragi coexister (une direct consommateur, une transitive hermod) avec fragmentation de type silencieuse (`UsageEvent` structurellement séparé entre versions). La peerDep force une version unique résolue par le consommateur. Coût : une commande npm supplémentaire, acceptable.
 
 ## Développement
 

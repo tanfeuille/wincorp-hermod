@@ -36,10 +36,18 @@
     "url": "https://github.com/tanfeuille/wincorp-hermod.git"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.82.0",
+    "@anthropic-ai/sdk": "^0.82.0"
+  },
+  "peerDependencies": {
     "@tanfeuille/bragi": "^0.1.0"
   },
+  "peerDependenciesMeta": {
+    "@tanfeuille/bragi": {
+      "optional": false
+    }
+  },
   "devDependencies": {
+    "@tanfeuille/bragi": "^0.1.0",
     "@types/node": "^22.0.0",
     "typescript": "^5.7.0",
     "vitest": "^4.1.2"
