@@ -21,7 +21,12 @@ jobs:
           scope: '@tanfeuille'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync bragi metadata
+        run: npm run sync-bragi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
