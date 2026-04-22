@@ -29,7 +29,9 @@ import {
 } from "./types.js";
 
 const TIMEOUT_SEC_MIN = 1;
-const TIMEOUT_SEC_MAX = 600;
+// Cap haut à 1800s (30min) pour couvrir Opus sur analyse FEC gros dossiers
+// (worker fec-analyzer thor). Au-delà, c'est le signe d'un mauvais découpage côté consumer.
+const TIMEOUT_SEC_MAX = 1800;
 
 // =============================================================================
 // Self-check version bragi (R15b, memoized)
