@@ -1,6 +1,6 @@
 # `wincorp_hermod.hermod-client` — Specification
 
-> **Statut :** DRAFT
+> **Statut :** IMPLEMENTED (v0.1.2 publié GitHub Packages 22/04/2026, consommé par thor + bifrost, audit 3 agents downstream validé)
 > **Version :** 1.2
 > **Niveau :** 2 (standard)
 > **Auteur :** Tan Phi HUYNH
