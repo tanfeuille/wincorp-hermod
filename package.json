@@ -1,6 +1,6 @@
 {
   "name": "@tanfeuille/hermod",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Hermod — messager des dieux nordiques. Wrapper TypeScript du SDK @anthropic-ai/sdk, aligné sur la config LLM Yggdrasil exposée par @tanfeuille/bragi. Porte retry + timeout + métriques vers Anthropic. Consommé par wincorp-thor et wincorp-bifrost.",
   "type": "module",
   "main": "dist/index.js",

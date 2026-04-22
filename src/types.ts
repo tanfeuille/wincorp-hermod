@@ -15,9 +15,16 @@ import type { CanonicalModelName, UsageEvent } from "@tanfeuille/bragi";
 /**
  * Phantom brand symbol — empêche qu'une instance SDK nue soit assignable à
  * HermodClient. Stampé runtime par le Proxy sur l'objet `messages` (R11d).
- * Non exporté publiquement — le consumer ne manipule jamais ce symbol.
+ * Le consumer n'a pas à manipuler ce symbol directement (comportement
+ * interne), mais il DOIT exister au runtime : client.ts l'utilise en
+ * computed property key sur l'objet `messages` retourné (ligne 226).
+ *
+ * Historique : avant v0.1.3, déclaré `declare const` (ambient type-only) →
+ * l'import côté consumer (Next.js webpack) cassait avec
+ * `'HermodClientBrand' is not exported from './types.js'`. Fix incident
+ * bifrost 22/04 : remplacer par un vrai Symbol runtime.
  */
-export declare const HermodClientBrand: unique symbol;
+export const HermodClientBrand: unique symbol = Symbol("HermodClientBrand");
 
 /**
  * Params de messages.create() sans `model` (injecté par hermod via Proxy R2d).
